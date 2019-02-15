@@ -9,13 +9,11 @@
 <body class="bg-dark ">
     <h1 class="text-white text-center pt-5">JavaScript DOM function</h1> 
     <div class="container">
-        <div class="row">
-        
+        <div class="row"> 
         <div class="col-md-4">
             <button onclick='showDomElements()' class="d-inline">Show DOM elements.</button>
         </div>
         <div class="col-md-4">
-
             ​<div id="main" class="text-white ">
                 <h3 id="first">This h3 tag</h3>
                 <p>This is a p tag  with a list
@@ -26,16 +24,34 @@
                     <li>This is another list</li>
                 </ul>
                 ​<button onclick="showTags()">Show DOM element tags.</button> 
-            </div>
-            
-            
-               ​
+            </div>       ​
         </div>
         <div class="col-md-4">
             <p id="display" class="text-white"></p> 
         </div>
         </div>
     </div>
- 
+    <script>
+        window.onload=function(){
+            document.getElementById('main').style.display='none';
+            function showDomElements(){
+                document.getElementById('main').style.display='block'
+            };
+            
+        };
+        function showTags() {
+                var c = document.getElementById('main').childNodes;
+                var txt = " ";
+                var i;
+                for (i = 0; i < c.length; i++) {
+                txt = txt + c[i].nodeName + ", ";
+                }
+            
+                document.getElementById("display").innerHTML = txt;
+            };
+        function showDomElements(){
+                document.getElementById('main').style.display='block'
+            };
+    </script>
 </body>
 </html>
